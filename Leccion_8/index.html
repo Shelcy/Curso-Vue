@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3>Cambia tu contraseña</h3>
+        <input type="text" v-model="password">
+        <br>
+        <p>{{ estado }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                password: null,
+                estado: "Introduce nueva contraseña...",
+                novalidos: [
+                    "admin",
+                    "12345",
+                    "password"
+                ],
+            },
+            watch:{
+                password(nuevo, antiguo){
+                    console.log(nuevo, antiguo)
+                    if (this.novalidos.indexOf(nuevo) > -1){
+                        this.estado = "Contraseña no valida";
+                        return false
+                    }
+
+                    if(nuevo.lenght < 5){
+                        this.estado = "La contraseñaa debe de tener al menos 5 caracteres";
+                        return false
+                    }
+                    
+                    this.estado = "Contraseña valida";
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>
