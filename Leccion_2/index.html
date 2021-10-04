@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ tema }}</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        /*  ° vm = Vue model
+            ° $vm0 = Una variable que se ve en la devtools de vue en la cual esta nuestro elemento de vue 
+            ° Para imprimir en cosola : $vm0.tema .... Esto imprimira la variable data que se encuentra en data.
+            */
+        new Vue({
+            el:"#app",
+            data:{
+                tema: "Vue Devtools",
+            }
+        }),
+
+        Vue.config.devtools = true
+    </script>
+    
+</body>
+</html>
